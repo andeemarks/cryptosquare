@@ -1,6 +1,5 @@
 service:
   name: cryptosquare
-# app and org for use with dashboard.serverless.com
 app: cryptosquare
 org: andeemarks
 
@@ -24,7 +23,7 @@ provider:
 
 functions:
   hello:
-    handler: handler.hello
+    handler: src/handler.hello
     events:
       - http:
           method: get

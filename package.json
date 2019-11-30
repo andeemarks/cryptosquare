@@ -2,7 +2,7 @@
   "name": "cryptosquare",
   "version": "1.0.0",
   "description": "Serverless webpack example using Typescript",
-  "main": "handler.js",
+  "main": "src/handler.js",
   "scripts": {
     "test": "mocha -r ts-node/register ./**/*.spec.ts"
   },
