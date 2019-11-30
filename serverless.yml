@@ -27,7 +27,12 @@ functions:
     events:
       - http:
           method: get
-          path: square-sizer
+          path: square-sizer/{plaintext}
+          request:
+            parameters:
+              paths:
+                plaintext: true
+                
   normalizer:
     handler: src/normalizer/handler.fn
     events:

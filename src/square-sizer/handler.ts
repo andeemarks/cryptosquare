@@ -5,12 +5,15 @@ export const fn: Handler = (
   _: Context,
   cb: Callback
 ) => {
+  let size: string = "";
+  const plaintext = event.pathParameters.plaintext;
+  if (plaintext) {
+    size = Math.round(Math.sqrt(plaintext.length) + 0.49).toString();
+  }
   const response = {
     statusCode: 200,
     body: JSON.stringify({
-      message:
-        "square-sizer",
-      input: event
+      size: size
     })
   };
 
