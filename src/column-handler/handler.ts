@@ -1,6 +1,6 @@
 import { APIGatewayEvent, Context, Handler, Callback } from "aws-lambda";
 
-export const hello: Handler = (
+export const handler: Handler = (
   event: APIGatewayEvent,
   _: Context,
   cb: Callback
@@ -9,7 +9,7 @@ export const hello: Handler = (
     statusCode: 200,
     body: JSON.stringify({
       message:
-        "Go Serverless Webpack (Typescript) v1.0! Your function executed successfully!",
+        "column-handler",
       input: event
     })
   };
