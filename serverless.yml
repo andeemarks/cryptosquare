@@ -28,3 +28,9 @@ functions:
       - http:
           method: get
           path: hello
+  square-sizer:
+    handler: src/square-sizer.handler
+    events:
+      - http:
+          method: get
+          path: hello

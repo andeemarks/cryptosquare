@@ -4,7 +4,7 @@
   "description": "Serverless webpack example using Typescript",
   "main": "src/handler.js",
   "scripts": {
-    "test": "mocha -r ts-node/register ./**/*.spec.ts"
+    "test": "mocha -r ts-node/register ./src/**/*.spec.ts"
   },
   "dependencies": {
     "source-map-support": "^0.5.10"
