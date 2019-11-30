@@ -23,19 +23,19 @@ provider:
 
 functions:
   square-sizer:
-    handler: src/square-sizer/handler.handler
+    handler: src/square-sizer/handler.fn
     events:
       - http:
           method: get
           path: square-sizer
   normalizer:
-    handler: src/normalizer/handler.handler
+    handler: src/normalizer/handler.fn
     events:
       - http:
           method: get
           path: normalizer
   column-handler:
-    handler: src/column-handler/handler.handler
+    handler: src/column-handler/handler.fn
     events:
       - http:
           method: get
