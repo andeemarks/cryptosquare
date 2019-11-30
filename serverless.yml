@@ -22,15 +22,15 @@ provider:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
 
 functions:
-  hello:
-    handler: src/handler.hello
-    events:
-      - http:
-          method: get
-          path: hello
   square-sizer:
-    handler: src/square-sizer.handler
+    handler: src/square-sizer/handler.handler
     events:
       - http:
           method: get
-          path: hello
+          path: square-sizer
+  normalizer:
+    handler: src/normalizer/handler.handler
+    events:
+      - http:
+          method: get
+          path: normalizer
