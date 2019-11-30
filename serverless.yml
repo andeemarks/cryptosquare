@@ -34,3 +34,9 @@ functions:
       - http:
           method: get
           path: normalizer
+  column-handler:
+    handler: src/column-handler/handler.handler
+    events:
+      - http:
+          method: get
+          path: column-handler
