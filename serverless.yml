@@ -32,7 +32,7 @@ functions:
             parameters:
               paths:
                 plaintext: true
-                
+
   normalizer:
     handler: src/normalizer/handler.fn
     events:
@@ -44,4 +44,9 @@ functions:
     events:
       - http:
           method: get
-          path: column-handler
+          path: column-handler/{plaintext}/{columncount}
+          request:
+            parameters:
+              paths:
+                plaintext: true
+                columncount: true
