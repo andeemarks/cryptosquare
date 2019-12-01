@@ -11,7 +11,7 @@ export const fn: Handler = (
   const response = {
     statusCode: 200,
     body: JSON.stringify({
-      text: plaintext
+      text: plaintext.toLowerCase()
     })
   };
 
