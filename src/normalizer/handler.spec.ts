@@ -27,5 +27,15 @@ describe("normalizer", () => {
         );
       });
     });
+    it("should remove all whitespace", () => {
+      event.pathParameters.plaintext = " a  B cD  e";
+
+      fn(event, null, (error: Error, result: any) => {
+        expect(error).to.be.null;
+        expect(result.body).to.equal(
+          '{"text":"abcde"}'
+        );
+      });
+    });
   });
 });

@@ -6,12 +6,11 @@ export const fn: Handler = (
   cb: Callback
 ) => {
   const plaintext = event.pathParameters.plaintext;
-  console.log(plaintext);
 
   const response = {
     statusCode: 200,
     body: JSON.stringify({
-      text: plaintext.toLowerCase()
+      text: plaintext.toLowerCase().replace(/\s/g,'')
     })
   };
 
