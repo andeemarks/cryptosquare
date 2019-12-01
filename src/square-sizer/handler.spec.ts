@@ -11,27 +11,21 @@ describe("square-sizer", () => {
       event.pathParameters.plaintext = null;
       fn(event, null, (error: Error, result: any) => {
         expect(error).to.be.null;
-        expect(result.body).to.equal(
-          '{"size":""}'
-        );
+        expect(result.body).to.equal( '{"size":""}' );
       });
     });
     it("should return the size when the input length is an exact square", () => {
       event.pathParameters.plaintext = "abcd";
       fn(event, null, (error: Error, result: any) => {
         expect(error).to.be.null;
-        expect(result.body).to.equal(
-          '{"size":"2"}'
-        );
+        expect(result.body).to.equal( '{"size":"2"}' );
       });
     });
     it("should return the size when the input length is not an exact square", () => {
       event.pathParameters.plaintext = "abcde";
       fn(event, null, (error: Error, result: any) => {
         expect(error).to.be.null;
-        expect(result.body).to.equal(
-          '{"size":"3"}'
-        );
+        expect(result.body).to.equal( '{"size":"3"}' );
       });
     });
   });
