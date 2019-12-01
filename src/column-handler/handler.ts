@@ -7,11 +7,6 @@ let plaintextToColumnsMR = (str, num) => {
   return arr.reduce((acc, char, i) => (acc[i % num] += char, acc), initial);
 };
 
-const prependToElement = (arr, i, chr) => {
-  arr[i] = chr + (arr[i] || '')
-  return arr
-}
-
 // let plaintextToColumnsAE = (text: string, cols: number) =>
 // Array.from({ length: cols }, (_val, col) =>
 //   text
@@ -32,7 +27,7 @@ const prependToElement = (arr, i, chr) => {
 //   return cols;
 // }
 
-// let plaintextToColumns = (plaintext: string, columnCount: number): string[] => {
+// let plaintextToColumnsAM = (plaintext: string, columnCount: number): string[] => {
 //   if (columnCount == 1) {
 //     return [plaintext];
 //   }
