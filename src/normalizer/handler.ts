@@ -5,12 +5,13 @@ export const fn: Handler = (
   _: Context,
   cb: Callback
 ) => {
+  const plaintext = event.pathParameters.plaintext;
+  console.log(plaintext);
+
   const response = {
     statusCode: 200,
     body: JSON.stringify({
-      message:
-        "normalizer",
-      input: event
+      text: plaintext
     })
   };
 

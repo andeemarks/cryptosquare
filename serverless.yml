@@ -38,7 +38,12 @@ functions:
     events:
       - http:
           method: get
-          path: normalizer
+          path: normalizer/{plaintext}
+          request:
+            parameters:
+              paths:
+                plaintext: true
+
   column-handler:
     handler: src/column-handler/handler.fn
     events:
