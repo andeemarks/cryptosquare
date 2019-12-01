@@ -31,5 +31,13 @@ describe("handler", () => {
         expect(result.body).to.equal('["a"," "]');
       });
     });
+    it("should pad rows if the plaintext is too short", () => {
+      event.pathParameters.plaintext = "abcde";
+      event.pathParameters.columncount = "3";
+      fn(event, null, (error: Error, result: any) => {
+        expect(error).to.be.null;
+        expect(result.body).to.equal('["ad","be","c "]');
+      });
+    });
   });
 });

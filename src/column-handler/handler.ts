@@ -15,7 +15,11 @@ let plaintextToColumns = (plaintext: string, columnCount: number): string[] => {
   if (chunkedSortedChars.length < columnCount) {
     chunkedSortedChars.push(" ")
   }
-  
+
+  if (chunkedSortedChars[chunkedSortedChars.length - 1].length < chunkedSortedChars[0].length) {
+    chunkedSortedChars[chunkedSortedChars.length - 1] = _.pad(chunkedSortedChars[chunkedSortedChars.length - 1], chunkedSortedChars[0].length)
+  }
+
   return chunkedSortedChars;
 };
 
