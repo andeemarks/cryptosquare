@@ -6,10 +6,11 @@ export const fn: Handler = (
   _: Context,
   cb: Callback
 ) => {
+  const size = squareSize(event.pathParameters.plaintext); 
   const response = {
     statusCode: 200,
     body: JSON.stringify({
-      size: squareSize(event.pathParameters.plaintext)
+      size: (size || "").toString()
     })
   };
 
