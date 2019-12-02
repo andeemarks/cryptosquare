@@ -12,6 +12,7 @@ describe("handler", () => {
       event.pathParameters.columncount = "2";
       fn(event, null, (error: Error, result: any) => {
         expect(error).to.be.null;
+        expect(result.statusCode).to.equal(200);
         expect(result.body).to.equal('["ac","bd"]');
       });
     });
