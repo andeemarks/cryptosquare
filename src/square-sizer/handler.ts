@@ -1,7 +1,7 @@
-import { APIGatewayEvent, Context, Handler, Callback } from "aws-lambda";
+import { APIGatewayEvent, Context, Handler, Callback, SNSEvent } from "aws-lambda";
 import { squareSize } from "./get-matching-square";
 
-export const fn: Handler = (
+export const httpFn: Handler = (
   event: APIGatewayEvent,
   _: Context,
   cb: Callback
@@ -15,4 +15,14 @@ export const fn: Handler = (
   };
 
   cb(null, response);
+};
+
+export const snsFn: Handler = (
+  event: SNSEvent,
+  _: Context,
+  cb: Callback
+) => {
+  console.log(event);
+
+  cb(null, "bar");
 };

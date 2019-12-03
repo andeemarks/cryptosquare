@@ -7,11 +7,15 @@ custom:
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
+  serverless-offline-sns:
+    port: 4002 # a free port for the sns server to run on
+    debug: true
 
 # Add the serverless-webpack plugin
 plugins:
   - serverless-webpack
   - serverless-offline
+  - serverless-offline-sns
 
 provider:
   name: aws
@@ -23,8 +27,8 @@ provider:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
 
 functions:
-  square-sizer:
-    handler: src/square-sizer/handler.fn
+  square-sizer-http:
+    handler: src/square-sizer/handler.httpFn
     events:
       - http:
           method: get
@@ -33,6 +37,11 @@ functions:
             parameters:
               paths:
                 plaintext: true
+  square-sizer-sns:
+    handler: src/square-sizer/handler.snsFn
+    events:
+      - sns: 
+          arn: arn:aws:sns:ap-southeast-2:123456789012:cs-square-sizer
 
   normalizer:
     handler: src/normalizer/handler.fn
@@ -44,6 +53,7 @@ functions:
             parameters:
               paths:
                 plaintext: true
+      - sns: cs-normalizer
 
   column-handler:
     handler: src/column-handler/handler.fn
@@ -56,3 +66,4 @@ functions:
               paths:
                 plaintext: true
                 columncount: true
+      - sns: cs-column-handler
