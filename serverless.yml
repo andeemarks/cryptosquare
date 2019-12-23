@@ -27,6 +27,16 @@ provider:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
 
 functions:
+  backend:
+    handler: src/be/handler.fn
+    events:
+      - http:
+          method: get
+          path: be/{plaintext}
+          request:
+            parameters:
+              paths:
+                plaintext: true
   square-sizer-http:
     handler: src/square-sizer/handler.httpFn
     events:
